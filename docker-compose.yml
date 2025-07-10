@@ -1,0 +1,55 @@
+# Definicion de los servicios que componen la aplicacion.
+services:
+  frontend:
+    build: ./frontend
+    container_name: frontend_container
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+  # Servicio del backend de la aplicacion.
+  backend:
+    build: ./backend
+    container_name: backend_container
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  # Servicio de la base de datos PostgreSQL con la extension pgvector.
+  db:
+    # Imagen de Docker a utilizar. pgvector/pgvector:pg16 incluye PostgreSQL 16 y pgvector.
+    image: pgvector/pgvector:pg16
+    # Nombre del contenedor para una facil identificacion.
+    container_name: pgvector_db
+    # Carga las variables de entorno desde el archivo .env para la configuracion de la base de datos.
+    env_file:
+      - .env
+    # Mapeo de puertos. Expone el puerto de la base de datos del contenedor al host.
+    ports:
+      - "${DB_PORT}:5432"
+    # Volumen para persistir los datos de la base de datos mas alla del ciclo de vida del contenedor.
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  # Servicio de pgAdmin para la administracion de la base de datos.
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin_container
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@example.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    ports:
+      - "5050:80"
+    volumes:
+      - ./servers.json:/pgadmin4/servers.json
+    depends_on:
+      - db
+
+# Definicion de los volumenes utilizados por los servicios.
+volumes:
+  # Volumen nombrado para la persistencia de datos de PostgreSQL.
+  pgdata:

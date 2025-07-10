@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+sentence-transformers
+numpy
+scikit-learn
+python-multipart
+psycopg2-binary
+pgvector
+python-dotenv

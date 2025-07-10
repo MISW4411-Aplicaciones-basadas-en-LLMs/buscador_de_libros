@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seneca Book Finder</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Seneca Book Finder</h1>
+            <nav>
+                <a href="upload.html" class="nav-link">Cargar Libros</a>
+            </nav>
+        </header>
+        <main>
+            <section class="search-section">
+                <h2>Encuentra tu próxima lectura favorita</h2>
+                <div class="search-form">
+                    <div class="search-input-wrapper">
+                        <input type="text" id="query" placeholder="Buscar libros por título, autor o tema">
+                    </div>
+                    <div class="slider-wrapper">
+                        <label for="threshold">Umbral de similitud (0.0 - 1.0)</label>
+                        <div class="slider-container">
+                            <input type="range" id="threshold" min="0" max="1" step="0.01" value="0.5">
+                            <span id="threshold-value">0.5</span>
+                        </div>
+                    </div>
+                    <button id="search-btn">Buscar</button>
+                </div>
+            </section>
+            <section class="results-section">
+                <div id="plot-container" style="display: none;">
+                    <h3>Visualización Interactiva de Embeddings</h3>
+                    <div id="embedding-plot-wrapper">
+                        <div id="embedding-plot"></div>
+                        <button id="reset-plot-btn">Reiniciar Gráfico</button>
+                    </div>
+                    <div id="plot-tooltip" class="plot-tooltip" style="opacity:0;"></div>
+                    <div id="distance-info"></div>
+                </div>
+                <div id="loader" class="loader" style="display: none;"></div>
+                <div id="results"></div>
+                <p id="no-results" style="display: none;">No se encontraron resultados.</p>
+            </section>
+        </main>
+        <footer>
+            <p>
+                Universidad de los Andes | Vigilada Mineducación<br>
+                Reconocimiento como Universidad: Decreto 1297 del 30 de mayo de 1964.<br>
+                Reconocimiento personería jurídica: Resolución 28 del 23 de febrero de 1949 Minjusticia.<br>
+                Edificio Mario Laserna Cra 1Este No 19A - 40 Bogotá (Colombia) | Tel: +57 601 3394949 Ext: 2860, 2861, 2862 | Fax: +57 601 3324325<br>
+                © 2025 - Departamento de Ingeniería de Sistemas y Computación
+            </p>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

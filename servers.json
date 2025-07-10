@@ -1,0 +1,13 @@
+{
+    "Servers": {
+        "1": {
+            "Name": "Book App DB",
+            "Group": "Servers",
+            "Host": "db",
+            "Port": 5432,
+            "MaintenanceDB": "book_db",
+            "Username": "user",
+            "SSLMode": "prefer"
+        }
+    }
+}

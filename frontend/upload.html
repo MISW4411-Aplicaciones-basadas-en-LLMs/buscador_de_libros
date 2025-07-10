@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargar Libros - Seneca Book Finder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Seneca Book Finder</h1>
+            <nav>
+                <a href="index.html" class="nav-link">Buscar Libros</a>
+            </nav>
+        </header>
+        <main>
+            <section class="upload-section">
+                <h2>Cargar nuevos libros</h2>
+                <p>Selecciona un archivo JSON para añadir nuevos libros a la base de datos.</p>
+                <div class="upload-form">
+                    <input type="file" id="file-input" accept=".json">
+                    <label for="file-input" class="file-label">
+                        <span id="file-name">Seleccionar archivo...</span>
+                    </label>
+                    <button id="upload-btn">Cargar Libros</button>
+                </div>
+                <div id="log-container" class="log-container" style="display: none;">
+                    <h4>Registro del Proceso</h4>
+                    <pre id="log-output"></pre>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>
+                Universidad de los Andes | Vigilada Mineducación<br>
+                © 2025 - Departamento de Ingeniería de Sistemas y Computación
+            </p>
+        </footer>
+    </div>
+    <script src="upload.js"></script>
+</body>
+</html>
