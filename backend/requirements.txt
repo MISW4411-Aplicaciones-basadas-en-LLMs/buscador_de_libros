@@ -7,3 +7,9 @@ python-multipart
 psycopg2-binary
 pgvector
 python-dotenv
+langchain
+langchain-google-genai
+langgraph
+langchain-core
+google-generativeai
+typing-extensions
