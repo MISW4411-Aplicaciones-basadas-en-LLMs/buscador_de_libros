@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Álvaro el Bibliotecario - Seneca Book Finder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Seneca Book Finder</h1>
+            <nav>
+                <a href="index.html" class="nav-link">Buscar Libros</a>
+                <a href="upload.html" class="nav-link">Cargar Libros</a>
+                <a href="chat.html" class="nav-link active">Bibliotecario</a>
+            </nav>
+        </header>
+        <main>
+            <section class="chat-section">
+                <div class="librarian-intro">
+                    <div class="librarian-header">
+                        <h2>Hola, soy Álvaro tu bibliotecario virtual</h2>
+                    </div>
+                    <div class="librarian-description">
+                        <p>Estoy aquí para ayudarte a encontrar el libro en nuestra colección. En caso de que no lo encuentre, puedo sugerirte otros libros que podrían interesarte.</p>
+                    </div>
+                </div>
+                
+                <div class="chat-container">
+                    <div class="chat-messages" id="chat-messages">
+                        <!-- Mensajes aparecerán aquí -->
+                    </div>
+                    
+                    <div class="chat-input-section">
+                        <div class="chat-settings">
+                            <div class="settings-row">
+                                <div class="setting-item">
+                                    <label for="chat-k">Libros a extraer</label>
+                                    <div class="setting-control">
+                                        <input type="range" id="chat-k" min="1" max="10" value="5">
+                                        <span id="chat-k-value">5</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="setting-item">
+                                    <label for="chat-threshold">Umbral de similitud (0.0 - 1.0)</label>
+                                    <div class="setting-control">
+                                        <input type="range" id="chat-threshold" min="0.1" max="0.9" step="0.1" value="0.3">
+                                        <span id="chat-threshold-value">30%</span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                        <form class="chat-form" id="chat-form">
+                            <div class="search-input-wrapper">
+                                <input 
+                                    type="text" 
+                                    id="chat-input" 
+                                    placeholder="Pregúntame sobre los libros de nuestra colección..."
+                                >
+                            </div>
+                            <button type="submit" id="chat-send-btn">Preguntar</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div id="chat-loader" class="chat-loader" style="display: none;">
+                    <div class="loader-content">
+                        <div class="loader"></div>
+                        <p>Álvaro está pensando...</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>
+                Universidad de los Andes | Vigilada Mineducación<br>
+                Reconocimiento como Universidad: Decreto 1297 del 30 de mayo de 1964.<br>
+                Reconocimiento personería jurídica: Resolución 28 del 23 de febrero de 1949 Minjusticia.<br>
+                Edificio Mario Laserna Cra 1Este No 19A - 40 Bogotá (Colombia) | Tel: +57 601 3394949 Ext: 2860, 2861, 2862 | Fax: +57 601 3324325<br>
+                © 2025 - Departamento de Ingeniería de Sistemas y Computación
+            </p>
+        </footer>
+    </div>
+    <script src="chat.js"></script>
+</body>
+</html>
