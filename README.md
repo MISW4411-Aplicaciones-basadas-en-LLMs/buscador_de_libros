@@ -39,7 +39,7 @@ El proyecto está dividido en los siguientes servicios, orquestados con Docker C
 1.  **Clonar el repositorio:**
 
 2.  **Configurar el archivo de entorno:**
-    Ajuste el archivo `.env` en la raíz del proyecto con las credenciales de la base de datos. El archivo `.env.example` presente en la raíz del proyecto ejemplifica el contenido que debe contener el archivo.
+    Ajuste el archivo `.env` en la raíz del proyecto con las credenciales de la base de datos. El archivo `.env.example` presente en la raíz del proyecto ejemplifica el contenido que debe contener el archivo y puede ser usado como el archivo solicitado eliminando el fragmento `.example`.
 
 3.  **Levantar los servicios con Docker Compose:**
     Desde la raíz del proyecto, ejecuta el siguiente comando. Este comando construirá las imágenes de los contenedores y los iniciará.
@@ -47,6 +47,8 @@ El proyecto está dividido en los siguientes servicios, orquestados con Docker C
     ```bash
     docker compose up --build
     ```
+4.   Si al ejecutar `docker compose up` en Windows ve un error como `no such file or directory`, probablemente se debe a que Windows cambió las terminaciones de línea de los scripts del proyecto (de `LF` a `CRLF`).  
+Para solucionarlo fácilmente, abra el archivo afectado (en este caso `entrypoint.sh`) en Visual Studio Code, haga clic en `CRLF` (abajo a la derecha), cambie a `LF` y guarde el archivo.
 
     La primera vez que se ejecute, el servicio del backend preprocesará los datos de los libros, generará los embeddings y los insertará en la base de datos. Este proceso puede tardar unos minutos. En ejecuciones posteriores, el script verificará que no haya libros duplicados. Recuerde cargar el archivo `books.json` usando la opción **Cargar Libros** presente en la página principal del frontend antes de administrar la base de datos. 
 
